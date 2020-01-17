@@ -14,6 +14,9 @@ class Timer {
     stop(){
         clearInterval(this.startCount); //no entiendo porque no funciona!!!!!!!!
     }
+    reset(){
+        this.myTimer = 0
+    }
 }
 
 
