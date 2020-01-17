@@ -4,12 +4,15 @@ class Timer {
         this.myTimer = 0
     }
     start(){
-        setInterval(function(){
+        const startCount = setInterval(function(){
             this.myTimer++;
             console.log(this.myTimer)
         }.bind(this), 1000)
-        return this.myTimer
-        
+        //return startCount
+    }
+
+    stop(){
+        clearInterval(this.startCount); //no entiendo porque no funciona!!!!!!!!
     }
 }
 
