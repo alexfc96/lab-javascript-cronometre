@@ -2,8 +2,8 @@ console.clear()
 
 class Timer {
     constructor(myTimer, contTimer, seconds, minutes, hours){
-        this.myTimer = 0;  
-        this.contTimer = contTimer;
+        this.myTimer = 0;  //total count about the numbers of seconds during the cronometre in start mode()
+        this.contTimer = contTimer; //setInterval(function())
         this.seconds = 0;
         this.minutes = 0;
         this.hours = 0;
@@ -12,8 +12,8 @@ class Timer {
             this.contTimer = setInterval(function(){
             this.myTimer++;
             this.seconds++;
-            this.showTime()
-            //console.log(this.myTimer)
+            this.showTime() //call the method for show the state
+            //console.log(this.myTimer) total number of seconds even restarting the crono
             //return this.myTimer
         }.bind(this), 1000);
         //return contTimer
@@ -25,19 +25,21 @@ class Timer {
     }
   
     reset(){
-        this.myTimer = 0
+        //this.myTimer = 0
+        this.seconds = 0
+        this.minutes = 0;
+        this.hours = 0;
     }   
     showTime(){
         console.log(this.hours + ":" + this.minutes + ":" + this.seconds);
-        if(this.seconds % 59 === 0){
-            this.seconds = 0
-            this.minutes++;
-            console.log(this.hours + ":" + this.minutes + ":" + this.seconds);
+        if(this.seconds % 59 === 0){  
+            this.minutes++;          
             if(this.minutes % 59 === 0){
                 this.minutes = 0
                 this.hours++;
             }
-            
+            this.seconds = 0
+            console.log(this.hours + ":" + this.minutes + ":" + this.seconds);
         }
 
     }
@@ -45,4 +47,5 @@ class Timer {
 
     
 const timer1 = new Timer()
-console.log(timer1)
+//const timer2 = new Timer()
+//console.log(timer1)
